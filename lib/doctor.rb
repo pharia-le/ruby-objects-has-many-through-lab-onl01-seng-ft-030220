@@ -17,6 +17,10 @@ class Doctor
     Appointment.all.select {|appointment| appointment.doctor == self}
   end
   
+  def patients
+    appointments.map {|appointment| appointment.patient}  
+  end
+  
   def save
     @@all << self
   end
