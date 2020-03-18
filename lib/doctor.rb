@@ -13,6 +13,10 @@ class Doctor
     appointment = Appointment.new(date, patient, self)
   end
   
+  def appointments
+    Appointment.all.select {|appointment| appointment.doctor == self}
+  end
+  
   def save
     @@all << self
   end
